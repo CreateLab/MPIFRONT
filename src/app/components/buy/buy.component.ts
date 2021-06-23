@@ -6,10 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buy.component.css']
 })
 export class BuyComponent implements OnInit {
-
+  peasants: string[] = ['Иван', 'Аркадий', 'Афанас'];
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

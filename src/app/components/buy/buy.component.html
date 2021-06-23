@@ -1,1 +1,17 @@
-<p>buy works!</p>
+<div>
+    <div>
+        <mat-selection-list #pesantList>
+            <mat-list-option *ngFor="let peasant of peasants">
+                {{peasant}}
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
+    <div>
+        <mat-paginator [length]="100" [pageSize]="10" [hidePageSize]="true">
+        </mat-paginator>
+
+    </div>
+    <div>
+        <button mat-raised-button>Купить</button>
+    </div>
+</div>
