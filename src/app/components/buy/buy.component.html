@@ -1,19 +1,19 @@
 <div class="core">
     <mat-card>
         <div>
-            <mat-selection-list #pesantList>
+            <mat-selection-list #pesantList [(ngModel)]="selectedPeasants">
                 <mat-list-option *ngFor="let peasant of peasants">
-                    {{peasant}}
+                    {{peasant.name}} {{peasant.price}}
                 </mat-list-option>
             </mat-selection-list>
         </div>
         <div>
-            <mat-paginator [length]="100" [pageSize]="10" [hidePageSize]="true">
+            <mat-paginator [length]="countPeasents" [pageSize]="10" [hidePageSize]="true" (page)="onPaginateChange($event)">
             </mat-paginator>
 
         </div>
         <div>
-            <button mat-raised-button>Купить</button>
+            <button mat-raised-button (click)="buyButtonClick()">Купить</button>
         </div>
     </mat-card>
 </div>

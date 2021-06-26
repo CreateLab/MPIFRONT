@@ -15,6 +15,11 @@ import { MatCardModule } from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatListModule} from '@angular/material/list';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { GlobalService } from './services/global-constant.service';
+import { BuyService } from './components/buy/buy.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ArestService } from './components/arest/arest.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     ErrorComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -34,9 +40,15 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatButtonModule,
     MatListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
+
   ],
-  providers: [],
+  providers: [
+    GlobalService,
+    BuyService,
+    ArestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
