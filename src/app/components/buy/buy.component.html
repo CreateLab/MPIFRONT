@@ -2,7 +2,7 @@
     <mat-card>
         <div>
             <mat-selection-list #pesantList [(ngModel)]="selectedPeasants">
-                <mat-list-option *ngFor="let peasant of peasants">
+                <mat-list-option *ngFor="let peasant of peasants" [value]="peasant">
                     {{peasant.name}} {{peasant.price}}
                 </mat-list-option>
             </mat-selection-list>

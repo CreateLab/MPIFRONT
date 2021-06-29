@@ -16,7 +16,7 @@ export class BuyComponent implements OnInit {
   pageEvent?: PageEvent;
   constructor(private buyService: BuyService) {
     this.selectedPeasants = new Array<Peasant>();
-   }
+  }
 
   onPaginateChange(pageEvent: PageEvent) {
     this.buyService.getPeasantCount().subscribe(c => {
@@ -26,16 +26,17 @@ export class BuyComponent implements OnInit {
   }
 
   buyButtonClick() {
-    var arr = this.selectedPeasants?.map(x=>x as Peasant)
-    var filtredCollection = arr 
-    ?.map(s=>s.id).filter((x): x is string => x !== undefined) as string[]
-    this.buyService.postPeasantsIds(filtredCollection ==  undefined ? new Array<string>() : filtredCollection )
+    debugger
+    var arr = this.selectedPeasants?.map(x => x as Peasant)
+    var filtredCollection = arr
+      ?.map(s => s.id).filter((x): x is string => x !== undefined) as string[]
+    this.buyService.postPeasantsIds(filtredCollection == undefined ? new Array<string>() : filtredCollection)
   }
 
   ngOnInit(): void {
     this.buyService.getPeasantCount().subscribe(c => {
       this.countPeasents = c
-      this.buyService.getPeasants(10, 0).subscribe(r => this.peasants = r)
+       this.buyService.getPeasants(10, 0).subscribe(r => this.peasants = r)
     })
   }
 }
