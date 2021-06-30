@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { IdsModel } from 'src/app/models/IdsModel';
 import { Peasant } from 'src/app/models/Peasant';
 import { BuyService } from './buy.service';
 
@@ -30,7 +31,9 @@ export class BuyComponent implements OnInit {
     var arr = this.selectedPeasants?.map(x => x as Peasant)
     var filtredCollection = arr
       ?.map(s => s.id).filter((x): x is string => x !== undefined) as string[]
-    this.buyService.postPeasantsIds(filtredCollection == undefined ? new Array<string>() : filtredCollection)
+      var ids = new IdsModel();
+      ids.ids = filtredCollection == undefined ? new Array<string>() : filtredCollection;
+    this.buyService.postPeasantsIds(ids)
   }
 
   ngOnInit(): void {

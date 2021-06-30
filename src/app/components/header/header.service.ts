@@ -13,6 +13,8 @@ export class HeaderService {
 
         return this.client.get<User>(this.global.getUrl('GetUserInfo'), {
             observe: 'response'
+            ,
+            withCredentials: true
         }).pipe(map(p => p.body == undefined ? new User() : p.body));
     }
 }
